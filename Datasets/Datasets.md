@@ -1,34 +1,34 @@
 Dataset Title:-
 EdNET KT-4
 
-Usage of Dataset:
+Usage of Dataset:-
 The EdNet-KT4 dataset was used as the primary data source to model and analyze student learning behavior in an expert-agnostic Intelligent Tutoring System,Student interaction logs from the dataset were utilized to capture temporal sequences, behavioral patterns, and performance outcomes without relying on expert-labeled annotations.
 The dataset was filtered and preprocessed to form fixed-length interaction sequences, which were then used to train and evaluate multiple deep learning models under a self-supervised learning setup. EdNet-KT4 enabled realistic experimentation due to its large scale and rich interaction features, making it suitable for assessing the scalability, robustness, and generalization capability of the proposed tutoring framework.
 
-Dataset Information:
+Dataset Information:-
 The study uses the EdNet-KT4 dataset, a large-scale educational dataset consisting of real student interaction logs collected from an online tutoring system . It contains data from over 300,000 learners, with each user’s interactions stored as sequential records.The dataset includes key attributes such as timestamps, action types, item IDs, time spent (cursor time), content source, platform details, and binary correctness of responses. These rich temporal and behavioral features make EdNet-KT4 well suited for self-supervised learning, enabling effective modeling of student performance and learning behavior without requiring expert-labeled data.
 
-Dataset Name:
+Dataset Name:-
 EdNet-KT4 Dataset 
 
-Source:
+Source:-
 EdNet dataset collected from the Santa online tutoring system (EdNet-KT4)
 
-Domain:
+Domain:-
 
 Education / Intelligent Tutoring Systems / Learning Analytics
 
-Task:
+Task:-
 Predict the next student interaction correctness and model learner behavior from past interaction sequences
 
 
-Problem Type:
+Problem Type:-
 
 Binary classification (Correct vs. Incorrect) using self-supervised sequential learning
 
 
 
-File Format:
+File Format:-
 Individual CSV files per user containing sequential interaction logs
 
 
@@ -40,30 +40,28 @@ http://bit.ly/ednet-kt4
 
 
 
-Total Records:
+Total Records:-
 Over 300,000 learner interaction sequences collected from the EdNet-KT4 dataset
 
 
-Labeled Records:
+Labeled Records:-
 All records contain implicit labels derived from student responses (correct = 1, incorrect = 0); no manual expert labeling is used
 
 
-Classes:
+Classes:-
 Two classes – Correct and Incorrect
 
 
-Annotation Type:
+Annotation Type:-
 Self-supervised / implicit annotation, automatically obtained from student interaction logs
 
 
 Why This Dataset?
+
 EdNet-KT4 provides large-scale, real-world educational interaction data with rich temporal and behavioral features, making it ideal for expert-agnostic, self-supervised learning and scalable Intelligent Tutoring System research.
 
 
-Features Used
-
-
-
+Features Used:-
 Feature 1:Timestamp – captures the chronological order of student interactions
 
 Feature 2:Action Type – indicates the type of activity performed (e.g., reading, answering)
