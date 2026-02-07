@@ -69,8 +69,9 @@ General Project Workflow :
 2.Processing: Data cleaning, normalization, feature engineering, and conversion of interactions into fixed-length sequences to capture temporal learning behavior.
 
 3.Model: Self-supervised deep learning models such as MLP, LSTM, BiLSTM, GRU, CNN, Transformer, and a hybrid GRU-CNN, which learn both short-term and long-term learning patterns.
-
 4.Output: Accurate predictions of student performance and engagement, which can be used to provide adaptive feedback, learning recommendations, and improved tutoring support in real time.
+
+
 ---
 
 ## Dataset Used
@@ -140,12 +141,10 @@ All models in this research were trained using a self-supervised learning approa
 ---
 
 ## Model Testing / Evaluation
-Model evaluation was conducted on a held-out test set from the EdNet-KT4 dataset to rigorously assess the effectiveness and reliability of the proposed expert-agnostic Intelligent Tutoring System 
-727
-
-. After training, each deep learning model—MLP, LSTM, BiLSTM, GRU, CNN, Transformer, and the hybrid GRU-CNN—was evaluated on unseen student interaction sequences to ensure fair comparison and to test real-world generalization capability.
+Model evaluation was conducted on a held-out test set from the EdNet-KT4 dataset to rigorously assess the effectiveness and reliability of the proposed expert-agnostic Intelligent Tutoring System, After training, each deep learning model—MLP, LSTM, BiLSTM, GRU, CNN, Transformer, and the hybrid GRU-CNN—was evaluated on unseen student interaction sequences to ensure fair comparison and to test real-world generalization capability.
 Standard classification metrics, including Accuracy, Precision, Recall, and F1-score, were used to capture multiple aspects of performance. While accuracy measured overall correctness, precision and recall evaluated the models’ ability to reduce false positives and false negatives, and the F1-score provided a balanced assessment of predictive quality. In addition to metric-based evaluation, training and testing loss curves were closely analyzed to study convergence behavior, detect overfitting or underfitting, and understand learning stability across different architectures.
 Comparative analysis revealed clear performance differences among models. Sequential and hybrid models significantly outperformed non-sequential baselines, highlighting the importance of temporal learning in student behavior modeling. In particular, CNN and hybrid GRU-CNN models achieved the highest accuracy (up to 98.41%), exhibiting stable loss convergence and minimal train–test divergence. These results demonstrate that combining local pattern extraction with temporal dependency modeling leads to robust, scalable, and highly generalizable performance, validating the effectiveness of self-supervised, expert-agnostic approaches for intelligent tutoring systems.
+
 ---
 
 ## Results
