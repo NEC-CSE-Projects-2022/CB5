@@ -54,6 +54,8 @@ Original conference/IEEE paper used as inspiration for the model.
 ## Our Improvement Over Existing Paper
 Our work introduces an expert-agnostic, self-supervised ITS framework that learns directly from raw student interaction data without manual annotations.
 Using a hybrid GRU-CNN architecture, it achieves higher accuracy and better generalization than traditional expert-driven and single-model approaches.
+
+
 ---
 
 ## About the Project
