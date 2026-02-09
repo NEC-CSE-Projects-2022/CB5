@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title | default("Flask Project") }}</title>
+    <style>
+        :root {
+            --dark-blue: #0a192f;
+            --navy: #112240;
+            --light-navy: #233554;
+            --lightest-navy: #303C55;
+            --accent: #2D5BFF;
+            --light-accent: #5E85FF;
+            --text-primary: #e6f1ff;
+            --text-secondary: #a8b2d1;
+            --text-tertiary: #8892b0;
+            --card-bg: rgba(17, 34, 64, 0.95);
+            --header-shadow: 0 4px 20px rgba(2, 12, 27, 0.7);
+        }
+
+        body {
+            font-family: 'Poppins', 'Helvetica', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(rgba(10, 25, 47, 0.97), rgba(10, 25, 47, 0.98)),
+                       url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h100v100H0z' fill='%230a192f'/%3E%3Cpath d='M0 0l100 100M100 0L0 100' stroke='%23112240' stroke-width='0.5'/%3E%3C/svg%3E");
+            background-size: cover;
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background: var(--card-bg);
+            backdrop-filter: blur(8px);
+            color: var(--text-primary);
+            padding: 15px 5%;
+            box-shadow: var(--header-shadow);
+            position: static;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            flex-direction: row;
+            border-bottom: 1px solid var(--light-navy);
+        }
+
+        .logo {
+            height: 80px;
+            width: 80px;
+            margin-right: 20px;
+            border-radius: 8px;
+            object-fit: cover;
+            border: 1px solid var(--light-navy);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            flex-grow: 1;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 0;
+            color: var(--text-primary);
+            line-height: 1.3;
+            font-family: 'Georgia', 'Times New Roman', serif;
+        }
+
+        .team-info {
+            font-size: 0.9rem;
+            font-weight: 400;
+            margin-top: 8px;
+            color: var(--text-secondary);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .team-info span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .team-info i {
+            color: var(--accent);
+            font-size: 0.9rem;
+        }
+
+        nav {
+            margin-top: 15px;
+        }
+
+        .navbar {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+            margin: 0;
+            padding: 0;
+            flex-wrap: wrap;
+        }
+
+        .navbar li {
+            position: relative;
+        }
+
+        .navbar li a {
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 15px;
+            border-radius: 4px;
+            font-family: 'Helvetica', 'Arial', sans-serif;
+        }
+
+        .navbar li a:hover {
+            color: var(--text-primary);
+            background: rgba(45, 91, 255, 0.1);
+        }
+
+        .navbar li a.active {
+            color: var(--text-primary);
+            background: rgba(45, 91, 255, 0.15);
+            border-left: 3px solid var(--accent);
+        }
+
+        .separator {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--light-navy), transparent);
+            margin: 15px 0;
+            width: 100%;
+        }
+
+        /* Footer Styles */
+        footer {
+            background: var(--navy);
+            color: var(--text-secondary);
+            text-align: center;
+            padding: 20px;
+            margin-top: auto;
+            border-top: 1px solid var(--light-navy);
+            font-size: 0.9rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .copyright {
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .disclaimer {
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+
+        main {
+            flex: 1;
+        }
+
+        @media (max-width: 900px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+                padding: 20px;
+            }
+            
+            .logo {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+            
+            .navbar {
+                justify-content: center;
+                gap: 15px;
+            }
+            
+            .team-info {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .project-title {
+                font-size: 1.3rem;
+            }
+            
+            .team-info {
+                flex-direction: column;
+                gap: 8px;
+            }
+            
+            .navbar {
+                flex-direction: column;
+                gap: 8px;
+                align-items: center;
+            }
+            
+            .navbar li {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .navbar li a {
+                justify-content: center;
+            }
+            
+            footer {
+                padding: 15px;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="Logo" class="logo">
+        <div class="header-content">
+            <h1 class="project-title">{{ title | default("A Student Intelligent Tutoring System") }}</h1>
+            
+            <div class="team-info">
+                <span><i class="fas fa-users"></i> Team Members: T.Ramesh, Sk.M.Fayaz, K.Yarra Jakraiah</span>
+                <span><i class="fas fa-user-tie"></i> Guide: Dr.S.V.N.Srinivasu</span>
+                <span><i class="fas fa-user-graduate"></i> Mentor: D.Venkata Reddy</span>
+            </div>
+            
+            <div class="separator"></div>
+            
+            <nav>
+                <ul class="navbar">
+                    <li><a href="{{ url_for('index') }}"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="{{ url_for('about') }}"><i class="fas fa-info-circle"></i> About Project</a></li>
+                    <li><a href="{{ url_for('metrics') }}"><i class="fas fa-chart-line"></i> Metrics & Result</a></li>
+                    <li><a href="{{ url_for('flowchart') }}"><i class="fas fa-sitemap"></i> Flowchart</a></li>
+                    <li><a href="{{ url_for('predict') }}"><i class="fas fa-calculator"></i> Prediction</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="copyright">
+                &copy; Department of Computer Sceience and Engineering,Narasaraopeta Enginnering College(Autonomous),Palnadu(Dt),AP,India.
+            </div>
+            <div class="disclaimer">
+                This academic research project is for educational purposes only.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

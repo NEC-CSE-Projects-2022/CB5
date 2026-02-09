@@ -1,0 +1,224 @@
+{% extends "base.html" %}
+{% block content %}
+<style>
+    :root {
+        --dark-blue: #0a192f;
+        --navy: #112240;
+        --light-navy: #233554;
+        --lightest-navy: #303C55;
+        --accent: #2D5BFF;
+        --light-accent: #5E85FF;
+        --text-primary: #e6f1ff;
+        --text-secondary: #a8b2d1;
+        --text-tertiary: #8892b0;
+        --card-bg: rgba(17, 34, 64, 0.95);
+        --content-bg: rgba(17, 34, 64, 0.9);
+        --header-shadow: 0 4px 20px rgba(2, 12, 27, 0.7);
+    }
+
+    .about-container {
+        background: linear-gradient(rgba(10, 25, 47, 0.97), rgba(10, 25, 47, 0.98)),
+                   url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h100v100H0z' fill='%230a192f'/%3E%3Cpath d='M0 0l100 100M100 0L0 100' stroke='%23112240' stroke-width='0.5'/%3E%3C/svg%3E");
+        background-size: cover;
+        padding: 40px 30px;
+        color: var(--text-primary);
+        width: 100%;
+        box-sizing: border-box;
+        font-family: 'Poppins', 'Helvetica', sans-serif;
+        min-height: 100vh;
+    }
+
+    .content-row {
+        display: flex;
+        gap: 40px;
+        flex-wrap: wrap;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .about-project {
+        flex: 2;
+        min-width: 300px;
+    }
+
+    .table-of-content {
+        flex: 1;
+        min-width: 300px;
+        background: var(--card-bg);
+        padding: 25px;
+        border-radius: 8px;
+        box-shadow: var(--header-shadow);
+        border: 1px solid var(--light-navy);
+    }
+
+    .animated-title {
+        font-family: 'Georgia', 'Times New Roman', serif;
+        font-size: 2rem;
+        font-weight: 600;
+        margin-bottom: 20px;
+        color: var(--text-primary);
+        padding-bottom: 15px;
+        border-bottom: 1px solid var(--light-navy);
+        position: relative;
+    }
+
+    .animated-title:after {
+        content: '';
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        width: 80px;
+        height: 2px;
+        background: var(--accent);
+    }
+
+    .animated-text {
+        font-family: 'Georgia', serif;
+        font-size: 1.1rem;
+        line-height: 1.7;
+        color: var(--text-secondary);
+        margin-bottom: 25px;
+        text-align: justify;
+    }
+
+    .goals-section, .technologies-section {
+        margin-bottom: 30px;
+        padding: 20px;
+        background: var(--card-bg);
+        border-radius: 8px;
+        box-shadow: var(--header-shadow);
+        border: 1px solid var(--light-navy);
+    }
+
+    ol, ul {
+        color: var(--text-secondary);
+        padding-left: 20px;
+        margin-bottom: 15px;
+    }
+
+    li {
+        margin-bottom: 10px;
+        line-height: 1.6;
+    }
+
+    b {
+        color: var(--text-primary);
+        font-weight: 600;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 900px) {
+        .about-container {
+            padding: 30px 20px;
+        }
+        
+        .content-row {
+            gap: 30px;
+        }
+        
+        .animated-title {
+            font-size: 1.8rem;
+        }
+        
+        .animated-text {
+            font-size: 1rem;
+        }
+        
+        .goals-section, .technologies-section, .table-of-content {
+            padding: 20px;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .about-container {
+            padding: 20px 15px;
+        }
+        
+        .animated-title {
+            font-size: 1.6rem;
+        }
+        
+        .content-row {
+            flex-direction: column;
+        }
+        
+        .goals-section, .technologies-section, .table-of-content {
+            padding: 15px;
+        }
+    }
+</style>
+
+<div class="about-container">
+    <div class="content-row">
+        <!-- About the Project Section -->
+        <div class="about-project">
+            <h1 class="animated-title">About the Project</h1>
+            <p class="animated-text">A Student Intelligent Tutoring System  are usually unavoidable in traditional Intelligent Tutoring
+Systems (ITS) annotations and domain-specific
+rules, restricting scalability and flexibility. This System
+developed new expert-agnostic approach to intelligent tutoring
+based on self-supervised learning to promote more personalized
+education with-out depending on domain experts. We develop
+and evaluate multiple deep learning models—GRU, BiLSTM,
+LSTM, CNN, Transformer, MLP, and hybrid Embedded GRUCNN—trained on student interaction datasets using automatic
+representation learning techniques. Our approach leverages the
+sequential nature of learning behaviours and embeds contextualized features to identify optimal learning interventions. Among
+the tested architectures, Embedded GRU-CNN and BiLSTM,
+CNN models demonstrated superior accuracy (up to 99%) in
+predicting learner needs and engagement levels. The findings
+demonstrate substantial student modelling performance improvement without hand-crafted labels, affirming the promise of selfsupervised methods in ITS. The work opens to scalable, domainagnostic intelligent tutoring systems that can adapt and provide
+feedback in real time, a step toward democratizing AI-facilitated
+education for multiple types of learners.</p>
+            
+            <div class="goals-section">
+                <h2 class="animated-title">Project Methodology</h2>
+                <ol class="animated-text">
+                  <li>Dataset: Used EdNet-KT4 student interaction logs (~300k records). Sessions with 3 interactions or missing/invalid data were removed.</li>
+                  <li>Pre-processing: Label-encoded categorical fields (item id, action type, source, platform), scaled numeric features, created delta-time and rolling statistics, and built sequences of 100 interactions per user.</li>
+                  <li>Models: Trained seven deep learning models—MLP, LSTM, BiLSTM, GRU, CNN, Transformer, and a hybrid GRU-CNN—to capture both short- and long-term learning patterns.</li>
+                  <li>Training: Self-supervised task—predict next-interaction correctness using Adam optimizer and Binary Cross-Entropy loss, with dropout and early stopping.</li>
+                  <li>Evaluation: Compared models using Accuracy, Precision, Recall, and F1-score; CNN and GRU-CNN achieved ~98% accuracy, proving effective expert-agnostic Intelligent Tutoring.</li>
+                </ol>
+            </div>
+            
+            <div class="technologies-section">
+                <h2 class="animated-title">Advantages Of Project</h2>
+                <ol class="animated-text">
+                  <li>No need for expert annotations</li>
+                  <li>Scalable and domain-agnostic</li>
+                  <li>High predictive accuracy (~98%)</li>
+                  <li>Captures local and long-term patterns</li>
+                  <li>Enables real-time personalized feedback</li>
+                  <li>Efficient and robust generalization</li>
+                  <li>Cost-effective and easily deployable</li>
+                </ol>
+            </div>
+        </div>
+        
+        <!-- Table of Contents Section -->
+        <div class="table-of-content">
+            <h2 class="animated-title">SYSTEM REQUIREMENT</h2>
+            <ol class="animated-text">
+                <li><b>Hardware Requirements:</b>
+                    <ul>
+                        <li>System Type: Intel® Core™ i5-7500U CPU @ 2.40GHz</li>
+                        <li>Cache Memory: 4MB (Megabyte)</li>
+                        <li>RAM: Minimum 8GB (Gigabyte)</li>
+                        <li>Hard Disk: 4GB</li>
+                    </ul>
+                </li>
+                <li><b>Software Requirements:</b>
+                    <ul>
+                        <li>Operating System: Windows 11, 64-bit Operating System</li>
+                        <li>Coding Language: Python</li>
+                        <li>Python Distribution: Anaconda, Flask</li>
+                        <li>Browser: Any Latest Browser like Chrome</li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Georgia&display=swap" rel="stylesheet">
+{% endblock %}

@@ -1,0 +1,146 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+    /* Professional color scheme */
+    :root {
+        --dark-navy: #0a192f;
+        --navy: #112240;
+        --light-navy: #233554;
+        --accent: #64ffda;
+        --light-text: #ccd6f6;
+        --lighter-text: #a8b2d1;
+        --lightest-text: #e6f1ff;
+    }
+
+    /* Professional background with subtle texture */
+    body {
+        background: linear-gradient(rgba(10, 25, 47, 0.95), rgba(10, 25, 47, 0.98)),
+                    url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h100v100H0z' fill='%230a192f'/%3E%3Cpath d='M0 0l100 100M100 0L0 100' stroke='%23112240' stroke-width='0.5'/%3E%3C/svg%3E");
+        background-size: cover;
+        color: var(--light-text);
+        font-family: "Calibri", "Gill Sans", sans-serif;
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+    }
+
+    /* Main container with professional card layout */
+    .content-container {
+        max-width: 1000px;
+        margin: 60px auto;
+        padding: 50px;
+        background: var(--navy);
+        border-radius: 8px;
+        box-shadow: 0 10px 30px rgba(2, 12, 27, 0.7);
+        border: 1px solid var(--light-navy);
+        text-align: center;
+    }
+
+    /* Title Styling - Professional academic style */
+    h1 {
+        font-family: "Georgia", "Times New Roman", serif;
+        font-size: 2.6rem;
+        font-weight: 600;
+        line-height: 1.3;
+        color: var(--lightest-text);
+        text-align: left;
+        margin: 0 0 25px 0;
+        padding-bottom: 20px;
+        border-bottom: 1px solid var(--light-navy);
+        position: relative;
+    }
+
+    h1:after {
+        content: '';
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        width: 120px;
+        height: 2px;
+        background: var(--accent);
+    }
+
+    /* Paragraph Styling */
+    p {
+        font-family: "Georgia", serif;
+        font-size: 1.2rem;
+        line-height: 1.7;
+        color: var(--lighter-text);
+        margin: 30px 0 0 0;
+        text-align: justify;
+    }
+
+    /* Highlighted key terms */
+    .key-term {
+        color: var(--accent);
+        font-weight: 500;
+    }
+
+    /* Decorative elements */
+    .accent-box {
+        width: 40px;
+        height: 4px;
+        background: var(--accent);
+        margin: 30px 0;
+    }
+
+    /* Citation style */
+    .citation {
+        font-style: italic;
+        font-size: 1rem;
+        color: var(--lighter-text);
+        border-left: 3px solid var(--light-navy);
+        padding-left: 15px;
+        margin-top: 25px;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 900px) {
+        .content-container {
+            padding: 40px 30px;
+            margin: 40px 20px;
+        }
+        
+        h1 {
+            font-size: 2.2rem;
+        }
+        
+        p {
+            font-size: 1.1rem;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .content-container {
+            padding: 30px 20px;
+            margin: 30px 15px;
+        }
+        
+        h1 {
+            font-size: 1.9rem;
+        }
+        
+        p {
+            font-size: 1rem;
+            text-align: left;
+        }
+    }
+</style>
+
+<div class="content-container">
+    <h1> A Student Intelligent Tutoring System</h1>
+    
+    <div class="accent-box"></div>
+    
+    <p><span class="key-term">This System builds an expert-agnostic student Intelligent Tutoring System using self-supervised Deep Learning.
+ This System validate the tutoring information of the student and to predict student performance without manual annotations.
+And achieved about 98% accuracy by using the hybrid GRU-CNN and CNN models, this system effectively capturing both short-term and long-term learning patterns of tutoring information.
+The system delivers real-time, personalized feedback, enabling scalable and cost-effective AI-driven education across diverse subjects.</p>
+    
+    
+    <div class="citation">
+        This research contributes to the development of  Student intelligent tutoring systems through innovative AI approaches that minimize reliance on domain experts.
+    </div>
+</div>
+{% endblock %}
